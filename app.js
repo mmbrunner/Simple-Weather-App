@@ -25,12 +25,20 @@ const locationElement = document.querySelector(".location");
 const notificationElement = document.querySelector(".notification");
 
 // CHECK IF BROWSER SUPPORTS GEOLOCATION
-
-
-// SET USER'S POSITION
-
+if('geolocation' in navigator){
+    navigator.geolocation.getCurrentPosition(setPosition, showError);
+}else{
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = "<p>Browser Not Supporting Geolocation</p>"
+}
 
 // SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
+function showError(error){
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = `<p>${error.message}</p></p>`;
+}
+
+// SET USER'S POSITION
 
 
 // GET WEATHER FROM API PROVIDER
