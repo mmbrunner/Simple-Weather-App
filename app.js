@@ -11,6 +11,12 @@ weather.temperature = {
     unit : "fahrenheit"
 }
 
+// F to C CONVERSION
+function fahrenheitToCelsius(temperature){
+    return (temperature - 32) * (5/9);
+}
+
+
 // SELECTING ELEMENTS
 const iconElement = document.querySelector(".weather-icon");
 const temperatureElement = document.querySelector(".temperature-value p");
