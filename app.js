@@ -49,6 +49,8 @@ function setPosition(position){
 function getWeather(latitude, longitude){
     let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
+    // OTHER DATA THAT CAN BE FETCHED: COUTNRY, TIMEZONE, PRESSURE, HUMIDITY, WIND SPEED, WIND DIRECTION, FEELS LIKE, MAX/MIN TEMP, SUNRISE/SUNSET
+
     fetch(api)
         .then(function(response){
             let data = response.json();
@@ -56,7 +58,7 @@ function getWeather(latitude, longitude){
         })
         .then(function(data){
             weather.temperature.value = Math.floor(((data.main.temp - KELVIN) * (9/5)) + 32); //Converts from Kelvin to Fahrenheit
-            weather.description = data.weather[0].description;
+            weather.description = data.weather[0].description; //MAIN INSTEAD OF DESCRIPTION?
             weather.iconId = data.weather[0].icon;
             weather.city = data.name;
             weather.country = data.sys.country;
