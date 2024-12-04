@@ -23,3 +23,20 @@ const temperatureElement = document.querySelector(".temperature-value p");
 const descriptionElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location");
 const notificationElement = document.querySelector(".notification");
+
+// CHECK IF BROWSER SUPPORTS GEOLOCATION
+
+
+// SET USER'S POSITION
+
+
+// SHOW ERROR WHEN THERE IS AN ISSUE WITH GEOLOCATION SERVICE
+
+
+// GET WEATHER FROM API PROVIDER
+
+
+// DISPLAY WEATHER TO UI
+
+
+// WHEN THE USER CLICKS ON THE .TEMPERATURE ELEMENT
