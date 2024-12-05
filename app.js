@@ -49,7 +49,7 @@ function setPosition(position){
 function getWeather(latitude, longitude){
     let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
-    // OTHER DATA THAT CAN BE FETCHED: COUTNRY, TIMEZONE, PRESSURE, HUMIDITY, WIND SPEED, WIND DIRECTION, FEELS LIKE, MAX/MIN TEMP, SUNRISE/SUNSET
+    // OTHER DATA THAT CAN BE FETCHED: COUNTRY, TIMEZONE, PRESSURE, HUMIDITY, WIND SPEED, WIND DIRECTION, FEELS LIKE, MAX/MIN TEMP, SUNRISE/SUNSET
 
     fetch(api)
         .then(function(response){
@@ -84,10 +84,10 @@ temperatureElement.addEventListener("click", function(){
         let celsius = fahrenheitToCelsius(weather.temperature.value);
         celsius = Math.floor(celsius);
 
-        temperatureElement.innerHTML `${celsius}°<span>C</span>`;
+        temperatureElement.innerHTML = `${celsius}°<span>C</span>`;
         weather.temperature.unit = "celsius";
     }else{
-        temperatureElement.innerHTML `${weather.temperature.value}°<span>F</span>`;
+        temperatureElement.innerHTML = `${weather.temperature.value}°<span>F</span>`;
         weather.temperature.unit = "fahrenheit";
     }
 });
