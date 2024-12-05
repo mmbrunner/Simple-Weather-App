@@ -95,11 +95,11 @@ body {
     font-size: 0.6em;
 }
 
-.current-temperature-description {
+.current-weather-description {
     
 }
 
-.current-temperature-description p {
+.current-weather-description p {
     padding: 10px;
     margin: 0;
     color: #232a44;
@@ -155,39 +155,68 @@ body {
 }
 
 .day-temperature-value1 {
-
+    
 }
 
 .day-temperature-value1 p {
-    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+    color: #232a44;
+    font-size: 3em;
+    text-align: center;
+    cursor: pointer;
 }
 
-.day-temperature-description1 {
+.day-temperature-value1 span {
+    color: #232a44;
+    font-size: 0.6em;
+}
+
+.day-weather-description1 {
 
 }
 
-.day-temperature-description1 p {
+.day-weather-description1 p {
+    padding: 15px;
+    margin: 0;
+    color: #232a44;
+    text-align: center;
+    font-size: 1.5em;
     text-transform: capitalize;
 }
 
 .day-weather-icon2 {
-    margin: 0 auto;
-    text-align: center;
+    
 }
 
 .day-temperature-value2 {
-
+    
 }
 
 .day-temperature-value2 p {
-    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+    color: #232a44;
+    font-size: 3em;
+    text-align: center;
+    cursor: pointer;
 }
 
-.day-temperature-description2 {
+.day-temperature-value2 span {
+    color: #232a44;
+    font-size: 0.6em;
+}
+
+.day-weather-description2 {
 
 }
 
-.day-temperature-description2 p {
+.day-weather-description2 p {
+    padding: 15px;
+    margin: 0;
+    color: #232a44;
+    text-align: center;
+    font-size: 1.5em;
     text-transform: capitalize;
 }
 
@@ -201,14 +230,29 @@ body {
 }
 
 .day-temperature-value3 p {
-    text-transform: capitalize;
+    padding: 0px;
+    margin: 0;
+    color: #232a44;
+    font-size: 3em;
+    text-align: center;
+    cursor: pointer;
 }
 
-.day-temperature-description3 {
-
+.day-temperature-value3 span {
+    color: #232a44;
+    font-size: 0.6em;
 }
 
-.day-temperature-description3 p {
+.day-weather-description3 {
+    
+}
+
+.day-weather-description3 p {
+    padding: 15px;
+    margin: 0;
+    color: #232a44;
+    text-align: center;
+    font-size: 1.5em;
     text-transform: capitalize;
 }
 

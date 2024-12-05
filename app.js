@@ -19,11 +19,12 @@ function fahrenheitToCelsius(temperature){
 // SELECTING ELEMENTS FOR CURRENT WEATHER
 const currentIconElement = document.querySelector(".current-weather-icon");
 const currentTemperatureElement = document.querySelector(".current-temperature-value p");
-const currentDescriptionElement = document.querySelector(".current-temperature-description p");
+const currentDescriptionElement = document.querySelector(".current-weather-description p");
 const currentLocationElement = document.querySelector(".current-location");
 const notificationElement = document.querySelector(".notification");
 
 // SELECTING ELEMENTS FOR 3 DAY FORECAST
+
 
 // CHECK IF BROWSER SUPPORTS GEOLOCATION
 if('geolocation' in navigator){
