@@ -73,7 +73,7 @@ function currentGetWeather(latitude, longitude){
 // GET 3 DAY FORECAST FROM API
 function dayGetWeather(latitude, longitude){
     let dayAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
-    
+
     fetch(dayAPI)
         .then
 
