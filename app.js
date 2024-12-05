@@ -80,7 +80,7 @@ function dayGetWeather(latitude, longitude){
 
 // DISPLAY CURRENT WEATHER TO UI
 function displayCurrentWeather(){
-    currentIconElement.innerHTML = `<img src="icons/${weather.currenticonId}.png"/>`;
+    currentIconElement.innerHTML = `<img src="icons/${weather.currentIconId}.png"/>`;
     currentTemperatureElement.innerHTML = `${weather.currentTemperature.value}°<span>F</span>`;
     currentDescriptionElement.innerHTML = weather.currentDescription;
     currentLocationElement.innerHTML = `${weather.currentCity}, ${weather.currentCountry}`;
