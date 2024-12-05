@@ -27,7 +27,7 @@ body {
     text-align: center;
     padding: 15px;
     margin: 0 auto;
-    font-size: 1.5em;
+    font-size: 2.2em;
     color: #232a44;
 }
 
@@ -75,7 +75,7 @@ body {
 }
 
 .temperature-value p:hover {
-    font-size: 4.5em;
+    font-size: 3.5em;
 }
 
 .temperature-value span {
@@ -84,7 +84,7 @@ body {
 }
 
 .temperature-description {
-
+    text-align: center;
 }
 
 .temperature-description p {
@@ -93,16 +93,22 @@ body {
     color: #232a44;
     text-align: center;
     font-size: 1.5em;
+    text-transform: capitalize;
 }
 
+/* .LOCATION SETTINGS ARE EFFECTING .LOCATION P? */
 .location {
-
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #232a44;
+    font-size: 1.5em;
 }
 
 .location p {
-    margin: 0;
-    padding: 10px;
-    color: #232a44;
     text-align: center;
-    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+    color: #232a44;
+    font-size: 1.5em;
 }
