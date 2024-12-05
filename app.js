@@ -77,3 +77,17 @@ function displayWeather(){
 }
 
 // WHEN THE USER CLICKS ON THE .TEMPERATURE ELEMENT
+temperatureElement.addEventListener("click", function(){
+    if(weather.temperature.value === undefined) return;
+
+    if(weather.temperature.unit == "fahrenheit"){
+        let celsius = fahrenheitToCelsius(weather.temperature.value);
+        celsius = Math.floor(celsius);
+
+        temperatureElement.innerHTML `${celsius}°<span>C</span>`;
+        weather.temperature.unit = "celsius";
+    }else{
+        temperatureElement.innerHTML `${weather.temperature.value}°<span>F</span>`;
+        weather.temperature.unit = "fahrenheit";
+    }
+});
