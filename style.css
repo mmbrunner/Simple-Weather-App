@@ -1,6 +1,7 @@
 /* MAIN SECTION */
 * {
     font-family:'Times New Roman', Times, serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -84,13 +85,9 @@ body {
     padding: 0;
     margin: 0;
     color: #232a44;
-    font-size: 4em;
+    font-size: 3.5em;
     text-align: center;
     cursor: pointer;
-}
-
-.current-temperature-value p:hover {
-    font-size: 3.5em;
 }
 
 .current-temperature-value span {
@@ -128,42 +125,95 @@ body {
 .day-title {
     font-weight: bold;
     text-align: center;
-    padding: 40px;
+    padding: 0px;
+    height: 25px;
     margin: 0 auto;
-    font-size: 1.5em;
+    font-size: 2em;
     color: #232a44;
 }
 
 .day-weather-container {
-
+    width: 500px;
+    height: 260px;
+    background-color: #F4F9FF;
+    text-align: center;
 }
 
 .day-location {
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 0px;
+    height: 30px;
     color: #232a44;
     font-size: 1.5em;
 }
 
 /* 3 DAY WEATHER FORECAST ITEMS */
-.day-weather-icons {
+.day-weather-icon1 {
     margin: 0 auto;
     text-align: center;
 }
 
-.day-temperature-values {
+.day-temperature-value1 {
 
 }
 
-.day-temperature-values p {
+.day-temperature-value1 p {
     text-transform: capitalize;
 }
 
-.day-temperature-descriptions {
+.day-temperature-description1 {
 
 }
 
-.day-temperature-descriptions p {
+.day-temperature-description1 p {
     text-transform: capitalize;
+}
+
+.day-weather-icon2 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.day-temperature-value2 {
+
+}
+
+.day-temperature-value2 p {
+    text-transform: capitalize;
+}
+
+.day-temperature-description2 {
+
+}
+
+.day-temperature-description2 p {
+    text-transform: capitalize;
+}
+
+.day-weather-icon3 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.day-temperature-value3 {
+
+}
+
+.day-temperature-value3 p {
+    text-transform: capitalize;
+}
+
+.day-temperature-description3 {
+
+}
+
+.day-temperature-description3 p {
+    text-transform: capitalize;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
 }
