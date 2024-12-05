@@ -44,28 +44,28 @@ body {
     padding: 10px 0;
 }
 
-.weather-container {
+.current-weather-container {
     width: 300px;
     height: 260px;
     background-color: #F4F9FF;
 }
 
-.weather-icon {
+.current-weather-icon {
     width: 300px;
     height: 128px;
 }
 
-.weather-icon img {
+.current-weather-icon img {
     display: block;
     margin: 0 auto;
 }
 
-.temperature-value {
+.current-temperature-value {
     width: 300px;
     height: 60px;
 }
 
-.temperature-value p {
+.current-temperature-value p {
     padding: 0;
     margin: 0;
     color: #232a44;
@@ -74,20 +74,20 @@ body {
     cursor: pointer;
 }
 
-.temperature-value p:hover {
+.current-temperature-value p:hover {
     font-size: 3.5em;
 }
 
-.temperature-value span {
+.current-temperature-value span {
     color: #232a44;
     font-size: 0.6em;
 }
 
-.temperature-description {
+.current-temperature-description {
     text-align: center;
 }
 
-.temperature-description p {
+.current-temperature-description p {
     padding: 10px;
     margin: 0;
     color: #232a44;
@@ -97,7 +97,7 @@ body {
 }
 
 /* .LOCATION SETTINGS ARE EFFECTING .LOCATION P? */
-.location {
+.current-location {
     text-align: center;
     margin: 0;
     padding: 0;
@@ -105,7 +105,7 @@ body {
     font-size: 1.5em;
 }
 
-.location p {
+.current-location p {
     text-align: center;
     margin: 0;
     padding: 0;

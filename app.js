@@ -16,11 +16,11 @@ function fahrenheitToCelsius(temperature){
     return (temperature - 32) * (5/9);
 }
 
-// SELECTING ELEMENTS
-const iconElement = document.querySelector(".weather-icon");
-const temperatureElement = document.querySelector(".temperature-value p");
-const descriptionElement = document.querySelector(".temperature-description p");
-const locationElement = document.querySelector(".location");
+// SELECTING CURRENT WEATHER ELEMENTS
+const currentIconElement = document.querySelector(".current-weather-icon");
+const currentTemperatureElement = document.querySelector(".current-temperature-value p");
+const currentDescriptionElement = document.querySelector(".current-temperature-description p");
+const currentLocationElement = document.querySelector(".current-location");
 const notificationElement = document.querySelector(".notification");
 
 // CHECK IF BROWSER SUPPORTS GEOLOCATION
@@ -42,52 +42,50 @@ function setPosition(position){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
 
-    getWeather (latitude, longitude);
+    currentGetWeather (latitude, longitude);
 }
 
-// GET WEATHER FROM API
-function getWeather(latitude, longitude){
-    let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+// GET CURRENT WEATHER FROM API
+function currentGetWeather(latitude, longitude){
+    let currentAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
-    // OTHER DATA THAT CAN BE FETCHED: COUNTRY, TIMEZONE, PRESSURE, HUMIDITY, WIND SPEED, WIND DIRECTION, FEELS LIKE, MAX/MIN TEMP, SUNRISE/SUNSET
-
-    fetch(api)
+    fetch(currentAPI)
         .then(function(response){
             let data = response.json();
             return data;
         })
         .then(function(data){
-            weather.temperature.value = Math.floor(((data.main.temp - KELVIN) * (9/5)) + 32); //Converts from Kelvin to Fahrenheit
-            weather.description = data.weather[0].description; //MAIN INSTEAD OF DESCRIPTION?
-            weather.iconId = data.weather[0].icon;
-            weather.city = data.name;
-            weather.country = data.sys.country;
+            weather.temperature.currentValue = Math.floor(((data.main.temp - KELVIN) * (9/5)) + 32); //Converts from Kelvin to Fahrenheit
+            weather.currentDescription = data.weather[0].description; //MAIN INSTEAD OF DESCRIPTION?
+            weather.currentIconId = data.weather[0].icon;
+            weather.currentCity = data.name;
+            weather.currentCountry = data.sys.country;
         })
         .then(function(){
-            displayWeather();
+            displayCurrentWeather();
         });
 }
 
 // DISPLAY WEATHER TO UI
-function displayWeather(){
-    iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
-    temperatureElement.innerHTML = `${weather.temperature.value}°<span>F</span>`;
-    descriptionElement.innerHTML = weather.description;
-    locationElement.innerHTML = `${weather.city}, ${weather.country}`;
+function displayCurrentWeather(){
+    currentIconElement.innerHTML = `<img src="icons/${weather.currentIconId}.png"/>`;
+    currentTemperatureElement.innerHTML = `${weather.temperature.currentValue}°<span>F</span>`;
+    currentDescriptionElement.innerHTML = weather.currentDescription;
+    currentLocationElement.innerHTML = `${weather.currentCity}, ${weather.currentCountry}`;
 }
 
 // WHEN THE USER CLICKS ON THE .TEMPERATURE ELEMENT
-temperatureElement.addEventListener("click", function(){
-    if(weather.temperature.value === undefined) return;
+currentTemperatureElement.addEventListener("click", function(){
+    if(weather.temperature.currentValue === undefined) return;
 
     if(weather.temperature.unit == "fahrenheit"){
-        let celsius = fahrenheitToCelsius(weather.temperature.value);
+        let celsius = fahrenheitToCelsius(weather.temperature.currentValue);
         celsius = Math.floor(celsius);
 
-        temperatureElement.innerHTML = `${celsius}°<span>C</span>`;
+        currentTemperatureElement.innerHTML = `${celsius}°<span>C</span>`;
         weather.temperature.unit = "celsius";
     }else{
-        temperatureElement.innerHTML = `${weather.temperature.value}°<span>F</span>`;
+        currentTemperatureElement.innerHTML = `${weather.temperature.currentValue}°<span>F</span>`;
         weather.temperature.unit = "fahrenheit";
     }
 });
