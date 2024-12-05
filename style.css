@@ -128,7 +128,7 @@ body {
 .day-title {
     font-weight: bold;
     text-align: center;
-    padding: 20px;
+    padding: 40px;
     margin: 0 auto;
     font-size: 1.5em;
     color: #232a44;
@@ -139,66 +139,31 @@ body {
 }
 
 .day-location {
-
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #232a44;
+    font-size: 1.5em;
 }
 
 /* 3 DAY WEATHER FORECAST ITEMS */
-.day-weather-icon1 {
+.day-weather-icons {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.day-temperature-values {
 
 }
 
-.day-temperature-value1 {
+.day-temperature-values p {
+    text-transform: capitalize;
+}
+
+.day-temperature-descriptions {
 
 }
 
-.day-temperature-value1 p {
-
-}
-
-.day-temperature-description1 {
-
-}
-
-.day-temperature-description1 p {
-
-}
-
-.day-weather-icon2 {
-
-}
-
-.day-temperature-value2 {
-
-}
-
-.day-temperature-value2 p {
-
-}
-
-.day-temperature-description2 {
-
-}
-
-.day-temperature-description2 p {
-    
-}
-
-.day-weather-icon3 {
-
-}
-
-.day-temperature-value3 {
-
-}
-
-.day-temperature-value3 p{
-
-}
-
-.day-temperature-description3 {
-
-}
-
-.day-temperature-description3 p {
-
+.day-temperature-descriptions p {
+    text-transform: capitalize;
 }
