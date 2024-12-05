@@ -58,7 +58,7 @@ function currentGetWeather(latitude, longitude){
             return data;
         })
         .then(function(data){
-            weather.currentTemperature.value = Math.floor(((data.main.temp - KELVIN) * (9/5)) + 32); //Converts from Kelvin to Fahrenheit
+            weather.temperature.currentValue = Math.floor(((data.main.temp - KELVIN) * (9/5)) + 32); //Converts from Kelvin to Fahrenheit
             weather.currentDescription = data.weather[0].description; //MAIN INSTEAD OF DESCRIPTION?
             weather.currentIconId = data.weather[0].icon;
             weather.currentCity = data.name;
@@ -81,7 +81,7 @@ function dayGetWeather(latitude, longitude){
 // DISPLAY CURRENT WEATHER TO UI
 function displayCurrentWeather(){
     currentIconElement.innerHTML = `<img src="icons/${weather.currentIconId}.png"/>`;
-    currentTemperatureElement.innerHTML = `${weather.currentTemperature.value}°<span>F</span>`;
+    currentTemperatureElement.innerHTML = `${weather.temperature.currentValue}°<span>F</span>`;
     currentDescriptionElement.innerHTML = weather.currentDescription;
     currentLocationElement.innerHTML = `${weather.currentCity}, ${weather.currentCountry}`;
 };
@@ -91,16 +91,16 @@ function displayCurrentWeather(){
 
 // WHEN THE USER CLICKS ON THE CURRENT TEMPERATURE ELEMENT
 currentTemperatureElement.addEventListener("click", function(){
-    if(weather.currentTemperature.value === undefined) return;
+    if(weather.temperature.currentValue === undefined) return;
 
-    if(weather.currentTemperature.unit == "fahrenheit"){
-        let celsius = fahrenheitToCelsius(weather.currentTemperature.value);
+    if(weather.temperature.unit == "fahrenheit"){
+        let celsius = fahrenheitToCelsius(weather.temperature.currentValue);
         celsius = Math.floor(celsius);
 
         currentTemperatureElement.innerHTML = `${celsius}°<span>C</span>`;
-        weather.currentTemperature.unit = "celsius";
+        weather.temperature.unit = "celsius";
     }else{
-        currentTemperatureElement.innerHTML = `${weather.currentTemperature.value}°<span>F</span>`;
-        weather.currentTemperature.unit = "fahrenheit";
+        currentTemperatureElement.innerHTML = `${weather.temperature.currentValue}°<span>F</span>`;
+        weather.temperature.unit = "fahrenheit";
     }
 });
