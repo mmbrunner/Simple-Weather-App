@@ -4,7 +4,7 @@ A simple weather application built with Vanilla JavaScript and AJAX, built and r
 
 ## Using OpenWeatherMap API Key
 
-`0c109c0ba9a10c9cf2a2c3c04d37a7a5`
+If the API Key has hit it's daily allowance, another API Key can be generated at [OpenWeatherMap](https://openweathermap.org/)
 
 ## Planned Upgrades
 
