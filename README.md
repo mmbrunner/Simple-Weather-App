@@ -6,7 +6,7 @@ A simple weather application built with Vanilla JavaScript and AJAX, built and r
 
 If the API Key has hit it's daily allowance, another API Key can be generated at [OpenWeatherMap](https://openweathermap.org/)
 
-## Planned Upgrades
+## Upcoming Updates (Coming Soon™)
 
 User Interface - expand the container size and add a second container/page for 3-Day Forecast
 
