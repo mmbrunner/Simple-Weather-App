@@ -1,6 +1,6 @@
 # Simple Weather App
 
-A simple weather application built with Vanilla JavaScript and AJAX, built and ran locally.
+A simple weather application built with basic JavaScript using geolocation to lookup weather data for the user's location.
 
 ## Using OpenWeatherMap API Key
 
