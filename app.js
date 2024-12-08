@@ -33,7 +33,6 @@ const day3TemperatureElement = document.querySelector(".day-temperature-value3")
 const day1DescriptionElement = document.querySelector(".day-weather-description1");
 const day2DescriptionElement = document.querySelector(".day-weather-description2");
 const day3DescriptionElement = document.querySelector(".day-weather-description3");
-const dayLocationElement = document.querySelector(".day-location");
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // CHECK IF BROWSER SUPPORTS GEOLOCATION
@@ -89,18 +88,17 @@ function dayGetWeather(latitude, longitude){
         .then(function(response){
             return response.json();
         })
-        .then(function(data){ // not sure if these data.list.etc are right
-            weather.day1IconId = data.list[0].weather[0].icon;
-            weather.day2IconId = data.list[1].weather[0].icon;
-            weather.day3IconId = data.list[2].weather[0].icon;
-            weather.temperature.day1Value = Math.floor(((data.list.main.temp - KELVIN) * (9/5)) + 32);
-            weather.temperature.day2Value = Math.floor(((data.main.temp - KELVIN) * (9/5)) + 32);
-            weather.temperature.day3Value = Math.floor(((data.main.temp - KELVIN) * (9/5)) + 32);
-            weather.day1Description = data.weather[0].description;
-            weather.day2Description = data.weather[0].description;
-            weather.day3Description = data.weather[0].description;
-            weather.dayCity = data.city.name;// also can't get the location to load properly
-            weather.dayCountry = data.city.country;
+        .then(function(data){ 
+            weather.day1IconId = data.list[0].weather.icon;
+            weather.day2IconId = data.list[1].weather.icon;
+            weather.day3IconId = data.list[2].weather.icon;
+            weather.temperature.day1Value = Math.floor(((data.list[0].main.temp - KELVIN) * (9/5)) + 32);
+            weather.temperature.day2Value = Math.floor(((data.list[1].main.temp - KELVIN) * (9/5)) + 32);
+            weather.temperature.day3Value = Math.floor(((data.list[2].main.temp - KELVIN) * (9/5)) + 32);
+            weather.day1Description = data.list[0].weather.description;
+            weather.day2Description = data.list[1].weather.description;
+            weather.day3Description = data.list[2].weather.description;
+            
         })
         .then(function(){
             displayDayWeather();
@@ -115,7 +113,7 @@ function displayCurrentWeather(){
     currentLocationElement.innerHTML = `${weather.currentCity}, ${weather.currentCountry}`;
 }; 
 
-// DISPLAY 3 DAY FORECAST TO UI ////////////////////////////////////////////////////////////////////
+// DISPLAY 3 DAY FORECAST TO UI /////////////////////////////////////////////////////////////////////
 function displayDayWeather(){
     day1IconElement.innerHTML = `<img src="icons/${weather.day1IconId}.png"/>`;
     day2IconElement.innerHTML = `<img src="icons/${weather.day2IconId}.png"/>`;
@@ -123,7 +121,6 @@ function displayDayWeather(){
     day1DescriptionElement.innerHTML = weather.day1Description;
     day2DescriptionElement.innerHTML = weather.day2Description;
     day3DescriptionElement.innerHTML = weather.day3Description;
-    dayLocationElement.innerHTML = `${weather.dayCity}, ${weather.dayCountry}`;// also can't get the location to load properly
 }; /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // WHEN THE USER CLICKS ON THE CURRENT TEMPERATURE ELEMENT
