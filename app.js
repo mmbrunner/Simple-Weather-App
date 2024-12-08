@@ -89,16 +89,15 @@ function dayGetWeather(latitude, longitude){
             return response.json();
         })
         .then(function(data){ 
-            weather.day1IconId = data.list[0].weather.icon;
-            weather.day2IconId = data.list[1].weather.icon;
-            weather.day3IconId = data.list[2].weather.icon;
-            weather.temperature.day1Value = Math.floor(((data.list[0].main.temp - KELVIN) * (9/5)) + 32);
-            weather.temperature.day2Value = Math.floor(((data.list[1].main.temp - KELVIN) * (9/5)) + 32);
-            weather.temperature.day3Value = Math.floor(((data.list[2].main.temp - KELVIN) * (9/5)) + 32);
-            weather.day1Description = data.list[0].weather.description;
-            weather.day2Description = data.list[1].weather.description;
-            weather.day3Description = data.list[2].weather.description;
-            
+            weather.day1IconId = data.list[7].weather[0].icon;
+            weather.day2IconId = data.list[15].weather[0].icon;
+            weather.day3IconId = data.list[23].weather[0].icon;
+            weather.temperature.day1Value = Math.floor(((data.list[7].main.temp - KELVIN) * (9/5)) + 32);
+            weather.temperature.day2Value = Math.floor(((data.list[15].main.temp - KELVIN) * (9/5)) + 32);
+            weather.temperature.day3Value = Math.floor(((data.list[23].main.temp - KELVIN) * (9/5)) + 32);
+            weather.day1Description = data.list[7].weather[0].description;
+            weather.day2Description = data.list[15].weather[0].description;
+            weather.day3Description = data.list[23].weather[0].description;
         })
         .then(function(){
             displayDayWeather();
@@ -118,6 +117,9 @@ function displayDayWeather(){
     day1IconElement.innerHTML = `<img src="icons/${weather.day1IconId}.png"/>`;
     day2IconElement.innerHTML = `<img src="icons/${weather.day2IconId}.png"/>`;
     day3IconElement.innerHTML = `<img src="icons/${weather.day3IconId}.png"/>`;
+    day1TemperatureElement.innerHTML = `${weather.temperature.day1Value}°<span>F</span>`;
+    day2TemperatureElement.innerHTML = `${weather.temperature.day2Value}°<span>F</span>`;
+    day3TemperatureElement.innerHTML = `${weather.temperature.day3Value}°<span>F</span>`;
     day1DescriptionElement.innerHTML = weather.day1Description;
     day2DescriptionElement.innerHTML = weather.day2Description;
     day3DescriptionElement.innerHTML = weather.day3Description;
