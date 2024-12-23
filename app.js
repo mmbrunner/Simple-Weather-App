@@ -66,15 +66,13 @@ function currentGetWeather(latitude, longitude){
         .then(function(response){
             return response.json();
         })
-        .then(function(data){
+        .then(function(data) {
             weather.temperature.currentValue = Math.floor(((data.main.temp - KELVIN) * (9/5)) + 32); //Converts from Kelvin to Fahrenheit
-            weather.currentDescription = data.weather[0].description; //MAIN INSTEAD OF DESCRIPTION?
+            weather.currentDescription = data.weather[0].description;
             weather.currentIconId = data.weather[0].icon;
             weather.currentCity = data.name;
             weather.currentCountry = data.sys.country;
-        })
-        .then(function(){
-            displayCurrentWeather();
+            displayCurrentWeather()
         });
 };
 
@@ -98,8 +96,6 @@ function dayGetWeather(latitude, longitude){
             weather.day1Description = data.list[7].weather[0].description;
             weather.day2Description = data.list[15].weather[0].description;
             weather.day3Description = data.list[23].weather[0].description;
-        })
-        .then(function(){
             displayDayWeather();
         });
 }; /////////////////////////////////////////////////////////////////////////////////////////////////
