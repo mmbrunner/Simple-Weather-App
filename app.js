@@ -23,17 +23,25 @@ const currentDescriptionElement = document.querySelector(".current-weather-descr
 const currentLocationElement = document.querySelector(".current-location");
 const notificationElement = document.querySelector(".notification");
 
-// SELECTING ELEMENTS FOR 3 DAY FORECAST ///////////////////////////////////////////////////////
-const day1IconElement = document.querySelector(".day-weather-icon1");
-const day2IconElement = document.querySelector(".day-weather-icon2");
-const day3IconElement = document.querySelector(".day-weather-icon3");
-const day1TemperatureElement = document.querySelector(".day-temperature-value1");
-const day2TemperatureElement = document.querySelector(".day-temperature-value2");
-const day3TemperatureElement = document.querySelector(".day-temperature-value3");
-const day1DescriptionElement = document.querySelector(".day-weather-description1");
-const day2DescriptionElement = document.querySelector(".day-weather-description2");
-const day3DescriptionElement = document.querySelector(".day-weather-description3");
-/////////////////////////////////////////////////////////////////////////////////////////////////
+// SELECTING ELEMENTS FOR 3 DAY FORECAST
+    // Using a for loop to iterate over the number of days and selects the elements
+    // Selected elements are then added to the weatherDays object as properties of the day object
+const days = 3;
+const weatherDays = {};
+
+for (let i = 1; i <= days; i++) {
+    const iconElement = document.querySelector(`.day-weather-icon${i}`);
+    const temperatureElement = document.querySelector(`.day-temperature-value${i}`);
+    const descriptionElement = document.querySelector(`.day-weather-description${i}`);
+
+    if (iconElement && temperatureElement && descriptionElement) {
+        weatherDays[`day${i}`] = {
+            icon: iconElement,
+            temperature: temperatureElement,
+            description: descriptionElement
+        };
+    }
+};
 
 // CHECK IF BROWSER SUPPORTS GEOLOCATION
 if('geolocation' in navigator){
@@ -76,7 +84,7 @@ function currentGetWeather(latitude, longitude){
         });
 };
 
-// GET 3 DAY FORECAST FROM API ///////////////////////////////////////////////////////////////////
+// GET 3 DAY FORECAST FROM API 
 function dayGetWeather(latitude, longitude){
     let dayAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`;
 
@@ -98,7 +106,7 @@ function dayGetWeather(latitude, longitude){
             weather.day3Description = data.list[23].weather[0].description;
             displayDayWeather();
         });
-}; /////////////////////////////////////////////////////////////////////////////////////////////////
+}; 
 
 // DISPLAY CURRENT WEATHER TO UI
 function displayCurrentWeather(){
@@ -108,18 +116,19 @@ function displayCurrentWeather(){
     currentLocationElement.innerHTML = `${weather.currentCity}, ${weather.currentCountry}`;
 }; 
 
-// DISPLAY 3 DAY FORECAST TO UI /////////////////////////////////////////////////////////////////////
+// DISPLAY 3 DAY FORECAST TO UI 
+    // Weather information for each day is retrieved from the weatherDays object and displayed on the corresponding elements in the UI
 function displayDayWeather(){
-    day1IconElement.innerHTML = `<img src="icons/${weather.day1IconId}.png"/>`;
-    day2IconElement.innerHTML = `<img src="icons/${weather.day2IconId}.png"/>`;
-    day3IconElement.innerHTML = `<img src="icons/${weather.day3IconId}.png"/>`;
-    day1TemperatureElement.innerHTML = `${weather.temperature.day1Value}°<span>F</span>`;
-    day2TemperatureElement.innerHTML = `${weather.temperature.day2Value}°<span>F</span>`;
-    day3TemperatureElement.innerHTML = `${weather.temperature.day3Value}°<span>F</span>`;
-    day1DescriptionElement.innerHTML = weather.day1Description;
-    day2DescriptionElement.innerHTML = weather.day2Description;
-    day3DescriptionElement.innerHTML = weather.day3Description;
-}; /////////////////////////////////////////////////////////////////////////////////////////////////
+    weatherDays.day1.icon.innerHTML = `<img src="icons/${weather.day1IconId}.png"/>`;
+    weatherDays.day2.icon.innerHTML = `<img src="icons/${weather.day2IconId}.png"/>`;
+    weatherDays.day3.icon.innerHTML = `<img src="icons/${weather.day3IconId}.png"/>`;
+    weatherDays.day1.temperature.innerHTML = `${weather.temperature.day1Value}°<span>F</span>`;
+    weatherDays.day2.temperature.innerHTML = `${weather.temperature.day2Value}°<span>F</span>`;
+    weatherDays.day3.temperature.innerHTML = `${weather.temperature.day3Value}°<span>F</span>`;
+    weatherDays.day1.description.innerHTML = weather.day1Description;
+    weatherDays.day2.description.innerHTML = weather.day2Description;
+    weatherDays.day3.description.innerHTML = weather.day3Description;
+}; 
 
 // WHEN THE USER CLICKS ON THE CURRENT TEMPERATURE ELEMENT
 currentTemperatureElement.addEventListener("click", function(){
